@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Shopping System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ShopEasy</h1>
+    <nav>
+      <button id="catalogNav">Products</button>
+      <button id="cartNav">Cart</button>
+      <button id="ordersNav">My Orders</button>
+      <button id="adminNav" hidden>Admin</button>
+      <button id="logoutBtn" hidden>Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h2>Online Shopping & Order Management</h2>
+      <p>Browse products, add to cart and place your order.</p>
+    </section>
+
+    <section id="authSection" class="panel">
+      <div class="auth-grid">
+        <form id="loginForm">
+          <h2>Customer / Admin Login</h2>
+          <label>Email <input id="loginEmail" type="email" required></label>
+          <label>Password <input id="loginPassword" type="password" required></label>
+          <button type="submit">Login</button>
+          <p class="hint">Demo admin: admin@shop.test / admin123</p>
+        </form>
+        <form id="registerForm">
+          <h2>Customer Registration</h2>
+          <label>Name <input id="registerName" required></label>
+          <label>Email <input id="registerEmail" type="email" required></label>
+          <label>Password <input id="registerPassword" type="password" minlength="4" required></label>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="catalogSection" class="panel" hidden>
+      <div class="section-head">
+        <h2>Product Catalogue</h2>
+        <form id="searchForm">
+          <input id="searchInput" placeholder="Search products">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      <div id="productList" class="product-grid"></div>
+    </section>
+
+    <section id="cartSection" class="panel" hidden>
+      <h2>Shopping Cart</h2>
+      <div id="cartList"></div>
+      <button id="checkoutBtn">Checkout</button>
+    </section>
+
+    <section id="ordersSection" class="panel" hidden>
+      <h2>Order History</h2>
+      <div id="ordersList"></div>
+    </section>
+
+    <section id="adminSection" class="panel" hidden>
+      <h2>Admin Product Management</h2>
+      <form id="productForm" class="product-form">
+        <input id="productName" placeholder="Product name" required>
+        <input id="productDescription" placeholder="Description">
+        <input id="productPrice" type="number" min="0" step="0.01" placeholder="Price" required>
+        <input id="productStock" type="number" min="0" step="1" placeholder="Stock" required>
+        <button type="submit">Add Product</button>
+      </form>
+      <p class="hint">Admin can add products here. Product edit and delete are also available through the application API.</p>
+    </section>
+
+    <p id="message" role="status"></p>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
